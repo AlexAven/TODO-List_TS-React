@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Container } from './Container';
 import Todo from './Todo';
-// import { useState } from 'react';
+import { useTodoState } from '../context/todosContext';
 
 const Wrapper = styled.section`
   padding: 3rem;
@@ -11,18 +11,17 @@ const Wrapper = styled.section`
 `;
 
 const TodoList = () => {
-  // const state = {
-  //   entities: {},
-  //   ids: [],
-  // }
-  // const [todos, setTodos] = useState();
-
+  const { ids, entities } = useTodoState();
+  
   return (
     <Container>
       <Wrapper>
-        <Todo checked={true} title={'ASS1'} />
-        <Todo checked={false} title={'ASS1'} />
-        <Todo checked={false} title={'ASS1'} />
+        {ids.map((todoID: string) => {
+          const todo = entities[todoID];
+          return (
+            <Todo key={todo.id} {...todo} />
+          );
+        })}
       </Wrapper>
     </Container>
   );

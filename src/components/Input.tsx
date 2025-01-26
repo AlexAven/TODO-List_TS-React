@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
 import { IoBriefcase } from 'react-icons/io5';
+import { useTodoDispatch } from '../context/todosContext';
 
 const Form = styled.form`
   width: 100%;
@@ -43,7 +44,9 @@ const SubmitBtn = styled.button.attrs({ type: 'submit' })`
 `;
 
 const Input = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState<string>('');
+  const dispatch = useTodoDispatch();
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
@@ -52,36 +55,11 @@ const Input = () => {
     const value = input.trim();
     
     if (value !== '') {
-      const getId = nanoid();
-
-      setTodos((prevState) => ({
-        entities: {
-          ...prevState.entities,
-          [getId]: { id: getId, title: value, checked: false },
-        },
-        ids: [...prevState.ids, getId],
-      }));
+      const newId = nanoid();
+      dispatch({ type: 'ADD_TODO', payload: { id: newId, title: value } });
+      setInput('');
     }
-
   };
-
-  type Entity = {
-    id: string;
-    title: string;
-    checked: boolean;
-  };
-
-  type State = {
-    entities: { [key: string]: Entity };
-    ids: string[];
-  };
-
-  const initialState: State = {
-    entities: {},
-    ids: [],
-  };
-
-  const [todos, setTodos] = useState(initialState);
 
   return (
     <Form onSubmit={handleSubmit} >

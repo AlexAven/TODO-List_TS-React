@@ -1,10 +1,13 @@
 import Layout from './components/Layout';
 import TodoPage from './pages/TodoPage';
+import { TodoProvider } from './context/todosContext';
 
 function App() {
   return (
     <Layout>
-      <TodoPage />
+      <TodoProvider>
+        <TodoPage />
+      </TodoProvider>
     </Layout>
   );
 }
