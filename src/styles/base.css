@@ -1,0 +1,28 @@
+html {
+  font-size: var(--fs-sm);
+}
+
+body {
+  margin: 0;
+  font-family: var(--family);
+  line-height: var(--line-height);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-md);
+  
+}
+
+body[data-theme='light'] {
+  color: var(--colors-text-light);
+  background-color: var(--colors-bg-light);
+  --colors-button: #d4d0d0;
+  --colors-ui-filters: #83cf6e;
+  --colors-ui-filters-hover: #d4f7d1;
+}
+
+body[data-theme='dark'] {
+  color: var(--colors-text-dark);
+  background-color: var(--colors-bg-dark);
+  --colors-button: #2f2e2e;
+  --colors-ui-filters: #0f4700;
+  --colors-ui-filters-hover: #3f403f;
+}
