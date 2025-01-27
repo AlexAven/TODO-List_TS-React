@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+## Список дел (TODO LIST)
+## Описание
+Одностраничное приложение позволяющее создавать список из своих дел.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Функционал позволяет добавлять новое дело по клику на кнопку "В список!" или нажатию клавиши "Enter".
+- Добавлена возможность поставить отметку о выполнении дела - оно зачеркнется и отметится как выполненное.
+- Можно удалить дело кликом на соответствующую клавишу.
+- Добавлен функционал фильтрации дел по трем параметрам: "Все" "Сделаны" "Не сделаны"  - в зависимости от выбранного фильтра отображаться будут только нужные дела. По у молчанию выбран фильтр "Все".
+- В UI добавлена возможнось переключению светлой/темной темы.
 
-Currently, two official plugins are available:
+### Архитектура проекта
+- Проект собран на Vite
+- Проект выполнен на TypeScript + React
+- Хранение данных организовано через хуки создания контекста для State и для Dispatch Reducers
+- Для работы с UI использовался styled-components.
+- Для генерации уникальных id используется бибилиотека nanoid.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Установка
+- Клонировать репозиторий;
+- Установить [NodeJS и NPM];
+- В корневой папке проекта выполнить в терминале команду `make install` или `npm install`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Запуск проекта
+В корневой папке проекта выполнить команду в терминале `make dev` или `npm run dev` которая запустит проект в режиме разрабочика на локальном хосте.
