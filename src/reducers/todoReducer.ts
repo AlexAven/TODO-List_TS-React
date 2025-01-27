@@ -34,6 +34,13 @@ export const todoReducer = (state: State, action: Action): State => {
         },
       };
     }
+    case 'SET_FILTER': {
+      const { filter } = action.payload;
+      return {
+        ...state,
+        filter,
+      };
+      }
     default:
       return state;
   }

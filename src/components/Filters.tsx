@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
-import Radio from './Radio';
 import { FilterType } from '../types';
+import Radio from './Radio';
+import { useTodoState, useTodoDispatch } from '../context/todosContext';
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,11 +11,13 @@ const Wrapper = styled.div`
 `;
 
 const Filter = () => {
-  const [filter , setFIlter] = useState<FilterType>('all');
+  const dispatch = useTodoDispatch();
+  const { filter } = useTodoState();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value as FilterType;
-    setFIlter(value) ;
+
+    dispatch({ type: 'SET_FILTER', payload: { filter: value } }) ;
   };
 
   return (

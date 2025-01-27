@@ -28,4 +28,5 @@ export type StateEntity = {
 export type State = {
   entities: { [key: string]: StateEntity };
   ids: string[];
+  filter: FilterType;
 };

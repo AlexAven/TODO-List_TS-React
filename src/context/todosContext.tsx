@@ -12,6 +12,7 @@ const DispatchContext = createContext<Dispatch | undefined>(undefined);
 const initialState: State = {
   entities: {},
   ids: [],
+  filter: 'all',
 };
 
 export const TodoProvider = ({ children }: TodoProviderProps) => {
