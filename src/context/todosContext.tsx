@@ -1,23 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useReducer, useContext } from 'react';
+
 import { todoReducer } from '../reducers/todoReducer';
-
-type Entity = {
-  id: string;
-  title: string;
-  checked: boolean;
-};
-
-type State = {
-  entities: { [key: string]: Entity };
-  ids: string[];
-};
-
-type Action =
-  | { type: 'ADD_TODO'; payload: { id: string; title: string } }
-  | { type: 'REMOVE_TODO'; payload: { id: string } }
-  | { type: 'TOGGLE_STATUS'; payload: { id: string } };
-
-type Dispatch = (action: Action) => void;
+import { State, Dispatch } from '../types';
 
 type TodoProviderProps = { children: React.ReactNode };
 

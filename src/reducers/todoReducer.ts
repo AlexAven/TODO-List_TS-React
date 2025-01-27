@@ -1,19 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-type Action =
-  | { type: 'ADD_TODO'; payload: { id: string; title: string } }
-  | { type: 'REMOVE_TODO'; payload: { id: string } }
-  | { type: 'TOGGLE_STATUS'; payload: { id: string } };
-
-type Entity = {
-  id: string;
-  title: string;
-  checked: boolean;
-};
-
-type State = {
-  entities: { [key: string]: Entity };
-  ids: string[];
-};
+import { Action, State } from '../types';
 
 export const todoReducer = (state: State, action: Action): State => {
   switch (action.type) {
