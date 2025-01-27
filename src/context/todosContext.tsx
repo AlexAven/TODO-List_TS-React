@@ -42,10 +42,16 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
 
 export const useTodoState = () => {
   const context = useContext(StateContext);
+  if (!context) {
+    throw new Error('useTodoState must be used within a TodoProvider');
+  }
   return context;
 };
 
 export const useTodoDispatch = () => {
   const context = useContext(DispatchContext);
+  if (!context) {
+    throw new Error('useTodoDispatch must be used within a TodoProvider');
+  }
   return context;
 };
