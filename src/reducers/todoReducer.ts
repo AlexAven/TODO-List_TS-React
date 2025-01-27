@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 type Action =
   | { type: 'ADD_TODO'; payload: { id: string; title: string } }
-  | { type: 'REMOVE_TODO'; payload: { id: string } };
+  | { type: 'REMOVE_TODO'; payload: { id: string } }
+  | { type: 'TOGGLE_STATUS'; payload: { id: string } };
 
 type Entity = {
   id: string;
@@ -34,6 +35,17 @@ export const todoReducer = (state: State, action: Action): State => {
         ...state,
         entities: remainingEntities,
         ids: state.ids.filter((existingId) => existingId !== id),
+      };
+    }
+    case 'TOGGLE_STATUS': {
+      const { id } = action.payload;
+      const { [id]: current } = state.entities;
+      return {
+        ...state,
+        entities: {
+          ...state.entities,
+          [id]: { ...current, checked: !current.checked },
+        },
       };
     }
     default:

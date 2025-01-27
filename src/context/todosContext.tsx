@@ -14,7 +14,8 @@ type State = {
 
 type Action =
   | { type: 'ADD_TODO'; payload: { id: string; title: string } }
-  | { type: 'REMOVE_TODO'; payload: { id: string } };
+  | { type: 'REMOVE_TODO'; payload: { id: string } }
+  | { type: 'TOGGLE_STATUS'; payload: { id: string } };
 
 type Dispatch = (action: Action) => void;
 

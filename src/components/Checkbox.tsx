@@ -27,8 +27,8 @@ const CheckboxEl = styled.input.attrs({
     &::after {
       content: '';
       position: absolute;
-      left: 8px;
-      top: 5px;
+      left: 10px;
+      top: 6px;
       width: 7px;
       height: 11px;
       border: solid white;
