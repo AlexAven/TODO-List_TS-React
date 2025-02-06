@@ -5,11 +5,10 @@ const HeaderEl = styled.header`
 `;
 
 const Wrapper = styled.div`
- padding: 3rem;
+  padding: 3rem;
 
- display: flex;
- justify-content: center;
- 
+  display: flex;
+  justify-content: center;
 `;
 
 const Title = styled.h1`
@@ -21,9 +20,7 @@ const Header = () => {
   return (
     <HeaderEl>
       <Wrapper>
-        <Title>
-          todo list
-        </Title>
+        <Title>todo list</Title>
       </Wrapper>
     </HeaderEl>
   );

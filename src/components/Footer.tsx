@@ -7,10 +7,10 @@ const FooterEl = styled.footer`
 `;
 
 const Wrapper = styled.div`
- padding: 1.5rem;
+  padding: 1.5rem;
 
- display: flex;
- justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const Title = styled.h1`
@@ -23,9 +23,7 @@ const Footer = () => {
     <FooterEl>
       <Container>
         <Wrapper>
-          <Title>
-            by Kazakov Alexander
-          </Title>
+          <Title>by Kazakov Alexander</Title>
         </Wrapper>
       </Container>
     </FooterEl>

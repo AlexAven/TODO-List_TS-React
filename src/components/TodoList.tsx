@@ -21,9 +21,9 @@ const NoTodos = styled.h2`
 const TodoList = () => {
   const dispatch = useTodoDispatch();
   const { ids, entities, filter } = useTodoState();
-  
-  const handleToggle = (id: string) => dispatch({ type: 'TOGGLE_STATUS', payload: { id } }); 
-  const handleRemove = (id: string) => dispatch({ type: 'REMOVE_TODO', payload: { id } });  
+
+  const handleToggle = (id: string) => dispatch({ type: 'TOGGLE_STATUS', payload: { id } });
+  const handleRemove = (id: string) => dispatch({ type: 'REMOVE_TODO', payload: { id } });
 
   const filteredTodos = ids
     .map((id) => entities[id])
@@ -42,12 +42,10 @@ const TodoList = () => {
   return (
     <Container>
       <Wrapper>
-        {
-          filteredTodos.length < 1 ? (
-            <NoTodos>
-              здесь пока пусто...
-            </NoTodos>) :
-          (filteredTodos.map((todo) => {
+        {filteredTodos.length < 1 ? (
+          <NoTodos>здесь пока пусто...</NoTodos>
+        ) : (
+          filteredTodos.map((todo) => {
             return (
               <Todo
                 key={todo.id}
@@ -56,8 +54,8 @@ const TodoList = () => {
                 onClick={() => handleRemove(todo.id)}
               />
             );
-          }))
-        }
+          })
+        )}
       </Wrapper>
     </Container>
   );

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 import { CheckboxType } from '../types';
 
-const CheckboxWrapper = styled.label`
-`;
+const CheckboxWrapper = styled.label``;
 
 const CheckboxEl = styled.input.attrs({
   type: 'checkbox',

@@ -13,6 +13,7 @@ const initialState: State = {
   entities: {},
   ids: [],
   filter: 'all',
+  theme: 'light',
 };
 
 export const TodoProvider = ({ children }: TodoProviderProps) => {
@@ -20,9 +21,7 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
 
   return (
     <StateContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        {children}
-      </DispatchContext.Provider>
+      <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
     </StateContext.Provider>
   );
 };

@@ -1,8 +1,8 @@
-// import React from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
-import { IoSunny, IoMoonOutline } from 'react-icons/io5';
 
-import useTheme from '../hooks/useTheme';
+import { useTodoDispatch, useTodoState } from '../context/todosContext';
+import { IoSunny, IoMoonOutline } from 'react-icons/io5';
 
 const ModeSwitcher = styled.button`
   display: flex;
@@ -19,11 +19,22 @@ const ModeSwitcher = styled.button`
 `;
 
 const ThemeSwitcher: React.FC = () => {
-  const [theme, toggleTheme] = useTheme();
+  const dispatch = useTodoDispatch();
+  const { theme } = useTodoState();
+
+  const toggleTheme = () =>
+    dispatch({
+      type: 'TOGGLE_THEME',
+      payload: { selectedTheme: theme === 'light' ? 'dark' : 'light' },
+    });
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
     <ModeSwitcher onClick={toggleTheme}>
-      {theme === 'light' ? <IoMoonOutline size={'2rem'}/> : <IoSunny size={'2rem'} />}
+      {theme === 'light' ? <IoMoonOutline size={'2rem'} /> : <IoSunny size={'2rem'} />}
     </ModeSwitcher>
   );
 };

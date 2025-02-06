@@ -17,7 +17,7 @@ const Filter = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value as FilterType;
 
-    dispatch({ type: 'SET_FILTER', payload: { filter: value } }) ;
+    dispatch({ type: 'SET_FILTER', payload: { filter: value } });
   };
 
   return (

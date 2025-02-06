@@ -17,8 +17,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding:  0 3rem;
-`; 
+  padding: 0 3rem;
+`;
 
 const Controls = () => {
   return (

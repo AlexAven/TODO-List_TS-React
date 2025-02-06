@@ -40,7 +40,14 @@ export const todoReducer = (state: State, action: Action): State => {
         ...state,
         filter,
       };
-      }
+    }
+    case 'TOGGLE_THEME': {
+      const { selectedTheme } = action.payload;
+      return {
+        ...state,
+        theme: selectedTheme,
+      };
+    }
     default:
       return state;
   }

@@ -17,14 +17,12 @@ const Title = styled.span<{ $ischecked: boolean }>`
   font-size: var(--fs-md);
   vertical-align: middle;
   line-height: 10px;
-  color: ${({ $ischecked }) =>
-  $ischecked ? 'var(--colors-text-alt)' : ''};
-  text-decoration: ${({ $ischecked }) =>
-  $ischecked ? 'line-through' : 'none'};
+  color: ${({ $ischecked }) => ($ischecked ? 'var(--colors-text-alt)' : '')};
+  text-decoration: ${({ $ischecked }) => ($ischecked ? 'line-through' : 'none')};
 `;
 
 const ButtonWrapper = styled.div`
-position: absolute;
+  position: absolute;
   right: 0.7rem;
   top: 35%;
   cursor: pointer;
@@ -40,7 +38,7 @@ const Todo = ({ checked, onChange, title, onClick }: CheckboxType) => {
       <Checkbox onChange={onChange} checked={checked} />
       <Title $ischecked={checked}>{title}</Title>
       <ButtonWrapper>
-        <RemoveBtn onClick={onClick}/>
+        <RemoveBtn onClick={onClick} />
       </ButtonWrapper>
     </TodoWrapper>
   );

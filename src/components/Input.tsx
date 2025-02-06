@@ -38,7 +38,7 @@ const SubmitBtn = styled.button.attrs({ type: 'submit' })`
   background-color: var(--colors-ui);
   font-weight: var(--fw-semi-bold);
 
-   &:hover {
+  &:hover {
     background-color: var(--colors-ui-hover);
   }
 `;
@@ -53,7 +53,7 @@ const Input = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const value = input.trim();
-    
+
     if (value !== '') {
       const newId = nanoid();
       dispatch({ type: 'ADD_TODO', payload: { id: newId, title: value } });
@@ -62,7 +62,7 @@ const Input = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} >
+    <Form onSubmit={handleSubmit}>
       <InputEl value={input} onChange={handleChange} />
       <SearchIcon />
       <SubmitBtn>В список!</SubmitBtn>

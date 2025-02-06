@@ -12,7 +12,7 @@ const Wrapper = styled.main`
   }
 `;
 
-const Main = ({ children }: MainProps ) => {
+const Main = ({ children }: MainProps) => {
   return (
     <Wrapper>
       <Container>{children}</Container>
